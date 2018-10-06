@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">displayjoke</string>
+    <string name="pass_by_value">pass_by_value</string>
+    <string name="title_activity_display_joke">DisplayJoke</string>
+</resources>
