@@ -1,0 +1,15 @@
+//apply plugin: 'java-library'
+apply plugin: 'java-library'
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
