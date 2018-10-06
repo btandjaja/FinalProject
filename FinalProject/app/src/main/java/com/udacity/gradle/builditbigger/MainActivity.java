@@ -10,7 +10,6 @@ import android.widget.Toast;
 import com.btandjaja.www.jokelibrary.Jokes;
 
 public class MainActivity extends AppCompatActivity {
-//    private Joke mNewJoke;
     private Jokes mNewJoke;
 
     @Override
