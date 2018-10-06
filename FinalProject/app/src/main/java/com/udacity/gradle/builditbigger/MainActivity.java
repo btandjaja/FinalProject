@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 import com.btandjaja.www.jokelibrary.Jokes;
 
+import com.google.android.gms.ads.MobileAds;
+
+
 public class MainActivity extends AppCompatActivity {
     private Jokes mNewJoke;
 
