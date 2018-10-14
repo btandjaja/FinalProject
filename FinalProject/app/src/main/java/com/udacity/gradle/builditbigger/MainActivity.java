@@ -6,22 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-
-import com.btandjaja.www.jokelibrary.Jokes;
-import com.btandjaja.www.displayjoke.DisplayJoke;
-
-import com.google.android.gms.ads.MobileAds;
 
 
 public class MainActivity extends AppCompatActivity {
-    private Jokes mNewJoke;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mNewJoke = new Jokes();
     }
 
 
@@ -48,11 +39,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Intent intent = new Intent(this, DisplayJoke.class);
-        intent.putExtra(getResources().getString(R.string.pass_by_value), mNewJoke.randomJokes());
-        startActivity(intent);
-//        Toast.makeText(this, mNewJoke.randomJokes(), Toast.LENGTH_SHORT).show();
+//        Intent intent = new Intent(this, DisplayJoke.class);
+//        intent.putExtra(getResources().getString(R.string.pass_by_value), mNewJoke.randomJokes());
+//        startActivity(intent);
+        new EndpointAsyncTask().execute();
     }
-
-
 }
