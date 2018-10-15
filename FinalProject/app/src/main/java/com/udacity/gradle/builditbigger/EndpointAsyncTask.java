@@ -20,7 +20,8 @@ public class EndpointAsyncTask extends AsyncTask<Void, Void, String>{
         if (myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
-                    .setRootUrl("http://localhost:8080/_ah/api/")
+//                    .setRootUrl("http://localhost:8080/_ah/api/")
+                    .setRootUrl("http://10.0.2.2:8080/_ah/api/")
 //                        .setRootUrl("http://10.120.0.87:8080/_ah/api/")
 //                        .setRootUrl("http://73.71.105.94:8080/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
@@ -34,8 +35,10 @@ public class EndpointAsyncTask extends AsyncTask<Void, Void, String>{
         }
 
         try {
-//                return myApiService.retrieveJoke().execute().getJoke();
-            return myApiService.sayHi("John").execute().getData();
+//            String joke = myApiService.retrieveJoke().execute().getJoke();
+//            return joke;
+                return myApiService.retrieveJoke().execute().getJoke();
+//            return myApiService.sayHi("John").execute().getData();
         } catch (IOException e) {
             return e.getMessage();
         }
@@ -44,6 +47,6 @@ public class EndpointAsyncTask extends AsyncTask<Void, Void, String>{
     @Override
     protected void onPostExecute(String result) {
         //TODO remove
-        Log.d(TAG, result);
+        Log.d(TAG, "******"+result);
     }
 }
