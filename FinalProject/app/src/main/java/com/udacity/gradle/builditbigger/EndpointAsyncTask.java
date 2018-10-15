@@ -13,17 +13,15 @@ import java.io.IOException;
 
 public class EndpointAsyncTask extends AsyncTask<Void, Void, String>{
     private MyApi myApiService = null;
-    //TODO remove
-    private String TAG = EndpointAsyncTask.class.getSimpleName();
+    public AsyncResponse delegate = null;
+
     @Override
     protected String doInBackground(Void... Void) {
         if (myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
-//                    .setRootUrl("http://localhost:8080/_ah/api/")
                     .setRootUrl("http://10.0.2.2:8080/_ah/api/")
-//                        .setRootUrl("http://10.120.0.87:8080/_ah/api/")
-//                        .setRootUrl("http://73.71.105.94:8080/_ah/api/")
+                    .setApplicationName("FinalProject")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
                         public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
@@ -35,10 +33,7 @@ public class EndpointAsyncTask extends AsyncTask<Void, Void, String>{
         }
 
         try {
-//            String joke = myApiService.retrieveJoke().execute().getJoke();
-//            return joke;
-                return myApiService.retrieveJoke().execute().getJoke();
-//            return myApiService.sayHi("John").execute().getData();
+                return myApiService.retrieveJoke("a").execute().getJoke();
         } catch (IOException e) {
             return e.getMessage();
         }
@@ -46,7 +41,6 @@ public class EndpointAsyncTask extends AsyncTask<Void, Void, String>{
 
     @Override
     protected void onPostExecute(String result) {
-        //TODO remove
-        Log.d(TAG, "******"+result);
+        delegate.processFinish(result);
     }
 }

@@ -31,7 +31,7 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name ="retrieveJoke")
-    public MyJoke retrieveJoke() {
+    public MyJoke retrieveJoke(@Named("extra") String extra) {
         MyJoke newJoke = new MyJoke();
         newJoke.setJoke();
         return newJoke;

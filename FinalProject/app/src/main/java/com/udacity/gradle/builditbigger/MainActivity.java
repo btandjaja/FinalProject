@@ -6,13 +6,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AsyncResponse{
+    private EndpointAsyncTask endpointAsyncTask = new EndpointAsyncTask();
+    private String mJoke;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        endpointAsyncTask.delegate = this;
     }
 
 
@@ -42,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
 //        Intent intent = new Intent(this, DisplayJoke.class);
 //        intent.putExtra(getResources().getString(R.string.pass_by_value), mNewJoke.randomJokes());
 //        startActivity(intent);
-        new EndpointAsyncTask().execute();
+//        new EndpointAsyncTask().execute();
+        endpointAsyncTask.execute();
+    }
+
+    @Override
+    public void processFinish(String output) {
+        mJoke = output;
+//        Toast.makeText(this, mJoke, Toast.LENGTH_LONG).show();
     }
 }
