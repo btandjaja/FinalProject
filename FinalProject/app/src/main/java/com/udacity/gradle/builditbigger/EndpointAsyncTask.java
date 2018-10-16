@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -11,12 +12,12 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
-public class EndpointAsyncTask extends AsyncTask<Void, Void, String>{
+public class EndpointAsyncTask extends AsyncTask<Context, Void, String>{
     private MyApi myApiService = null;
     public AsyncResponse delegate = null;
 
     @Override
-    protected String doInBackground(Void... Void) {
+    protected String doInBackground(Context... params) {
         if (myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)

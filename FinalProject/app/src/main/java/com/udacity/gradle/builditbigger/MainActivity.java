@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse{
     public void tellJoke(View view) {
         endpointAsyncTask = new EndpointAsyncTask();
         endpointAsyncTask.delegate = this;
-        endpointAsyncTask.execute();
+        endpointAsyncTask.execute(this);
     }
 
     @Override
