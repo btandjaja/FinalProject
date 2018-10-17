@@ -14,14 +14,11 @@ import com.google.android.gms.ads.AdView;
 
 
 public class MainActivity extends AppCompatActivity implements AsyncResponse{
-    private EndpointAsyncTask endpointAsyncTask;
-    private AdView mAdView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mAdView = findViewById(R.id.adView);
+        AdView mAdView = findViewById(R.id.adView);
         mAdView.setVisibility(View.VISIBLE);
         String flavor = BuildConfig.PAID_FLAVOR ? "PAID": "FREE";
         Toast.makeText(this, flavor, Toast.LENGTH_LONG).show();
@@ -51,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse{
     }
 
     public void tellJoke(View view) {
-        endpointAsyncTask = new EndpointAsyncTask();
+        EndpointAsyncTask endpointAsyncTask = new EndpointAsyncTask();
         endpointAsyncTask.delegate = this;
         endpointAsyncTask.execute(this);
     }
