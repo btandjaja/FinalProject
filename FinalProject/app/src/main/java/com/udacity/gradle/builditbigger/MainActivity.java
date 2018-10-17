@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mAdView = findViewById(R.id.adView);
+        mAdView.setVisibility(View.VISIBLE);
         String flavor = BuildConfig.PAID_FLAVOR ? "PAID": "FREE";
         Toast.makeText(this, flavor, Toast.LENGTH_LONG).show();
     }
