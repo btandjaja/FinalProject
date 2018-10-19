@@ -16,11 +16,20 @@
         android:text="@string/instructions" />
 
     <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/instructions_text_view"
         android:onClick="tellJoke"
         android:text="@string/button_text" />
+
+    <TextView
+        android:id="@+id/tv_flavor"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button"
+        tools:text="@string/flavor_type"/>
 
     <FrameLayout
         android:id="@+id/adView_frame"
@@ -33,8 +42,6 @@
             android:id="@+id/adView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
             ads:adSize="BANNER"
             ads:adUnitId="@string/banner_ad_unit_id" />
     </FrameLayout>

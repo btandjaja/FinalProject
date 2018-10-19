@@ -6,8 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.btandjaja.www.displayjoke.DisplayJoke;
 
@@ -16,11 +15,10 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FrameLayout adViewFrame = findViewById(R.id.adView_frame);
-        int visibility = BuildConfig.PAID_FLAVOR ? View.INVISIBLE : View.VISIBLE;
-        adViewFrame.setVisibility(visibility);
         String flavor = BuildConfig.PAID_FLAVOR ? "PAID": "FREE";
-        Toast.makeText(this, flavor, Toast.LENGTH_LONG).show();
+        String typeOfFlavor = "This is " + flavor + " variant.";
+        TextView flavorType = findViewById(R.id.tv_flavor);
+        flavorType.setText(typeOfFlavor);
     }
 
 
